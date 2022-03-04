@@ -25,7 +25,11 @@
                  <label for="password">Password</label>
                 <input type="password" name="password" placeholder="password"
                  class="bg-grey-100 border-2 w-full p-4 rounded-lg" value="">
-                
+                <div class="mb-4">
+                    <input type="checkbox" name="remember" id="remember" class="mr-2">
+                    <label for="remember">Remember Me</label>
+                </div>
+
                  <button class="bg-blue-500 text-white px-4 py-3 mt-3 rounded font-medium w-full" type="submit"> Login</button>
             </form>
         </div>

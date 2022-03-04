@@ -8,7 +8,13 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
-{
+{   
+    public function __construct(){//only logged out(guest) users can login/register 
+        $this->middleware(['guest']);
+    }
+
+
+
     public function index(){
         return view('auth.register');
     }

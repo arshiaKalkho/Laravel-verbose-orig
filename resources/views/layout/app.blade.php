@@ -23,7 +23,7 @@
         <ul class="flex items-center">
             @auth
                 <li>
-                    <a href="" class="p-3 font-bold">Loged In</a>
+                    <p class="p-1 mr-3 font-bold">welcome {{auth()->user()->name}}</p>
                 </li>
                 <li>
                     <form action="{{ route('logout') }}" method="POST" class="inline">
