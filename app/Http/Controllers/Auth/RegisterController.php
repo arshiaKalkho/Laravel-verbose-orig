@@ -31,8 +31,16 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
 
         ]);
+        //attempt login
+        auth()->attempt($request->only('email', 'password'));//request body has all fields only get these two as array
+        
+        /*alternatively do this
+        auth()->attempt([
+            'email'   => $request->email,
+            'password'=> $request->password,
+        ])
+        */
 
-
-        dd('worked');
+        return redirect()->route('dashboard');
     }
 }

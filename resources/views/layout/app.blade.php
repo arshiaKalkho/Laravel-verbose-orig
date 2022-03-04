@@ -11,25 +11,36 @@
     <nav class="p-6 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
             <li>
-                <a href="" class="p-3">home</a>
+                <a href="/" class="p-3">home</a>
             </li>
             <li>
-                <a href="" class="p-3">dahsboard</a>
+                <a href="{{ route('dashboard') }}" class="p-3">dahsboard</a>
             </li>
             <li>
                 <a href="" class="p-3">post</a>
             </li>
         </ul>
         <ul class="flex items-center">
+            @auth
+                <li>
+                    <a href="" class="p-3 font-bold">Loged In</a>
+                </li>
+                <li>
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button  type="submit">LogOut</button>
+                    </form>
+                </li>
+            @endauth
+
+            @guest
             <li>
-                <a href="" class="p-3">Login</a>
+                <a href="{{ route('login') }}" class="p-3">Login</a>
             </li>
             <li>
                 <a href="{{ route('register') }}" class="p-3">Register</a>
             </li>
-            <li>
-                <a href="" class="p-3">Logout</a>
-            </li>
+            @endguest
         </ul>
     </nav>
     @yield('content')
